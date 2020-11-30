@@ -1,0 +1,28 @@
+###Used as check for rollback - first name is empty - I put this as condition for rolling back
+PUT http://localhost:8080/userdetails/api/user/21
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id":21,"title":"Mr","firstName":"","lastName":"Paul","gender":"male","empid":"11","address":{"id":"3","street":"2 Paul Street","city":"Maroubra","state":"NSW","postcode":2033}}
+
+###To verify if update is persisted into the DB
+PUT http://localhost:8080/userdetails/api/user/21
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id":21,"title":"Mr","firstName":"Tom","lastName":"Paul","gender":"male","empid":"11","address":{"id":"3","street":"2 Paul Street","city":"Maroubra","state":"NSW","postcode":2033}}
+###To verify if valiator catches the nonnumeric empid
+PUT http://localhost:8080/userdetails/api/user/21
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id":21,"title":"Mr","firstName":"Tom","lastName":"Paul","gender":"male","empid":"1d1","address":{"id":"3","street":"2 Paul Street","city":"Maroubra","state":"NSW","postcode":2033}}
+
+###To get user with id 21
+GET http://localhost:8080/userdetails/api/user/21
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json

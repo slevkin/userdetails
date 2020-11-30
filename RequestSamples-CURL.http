@@ -1,0 +1,5 @@
+##to update user with id 21
+curl -X PUT -H "Content-Type: application/json" -d '{"id":21,"title":"Mr","firstName":"Tom","lastName":"Paul","gender":"male","empid":"11","address":{"id":"3","street":"2 Paul Street","city":"Maroubra","state":"NSW","postcode":2033}}' http://localhost:8080/userdetails/api/user/21
+###To get user with id 21
+
+curl -X GET -H "Content-type: application/json" -H "Accept: */*"  "http://localhost:8080/userdetails/api/user/21"

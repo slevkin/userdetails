@@ -1,0 +1,16 @@
+As part of the excersise I have created two endpoints  - to get-by-id and to update.
+H2 database is used.
+Implementation of the circuit breaker is quite minimal - annotation and the fallback method without much of logic.
+For the transaction rollback I provided two implementation - with declarative transaction handling and with programmatic.
+For the validator - I provided implementation of validator, but almost the same we may achieve by using @Pattern on the class
+I put logger's output into handler interceptor.
+Script with inserts loaded into DB during the start-up sits - /src/main/resoources/data.sql
+RequestSamples.http contains some request samples - you may use Intellij to run them. File with -CURL, some curl requests
+My assumptions:
+1) I created entity for User and Address and used separate key id for both of them - base
+on requirements it was not clear, if empid may serve as a key field. I implemented find user base on the id field
+2) Was not sure about rollback - there is not so much business logic find and update, so I put validation
+on the first name after the save operation to show rollback happening.
+
+
+
